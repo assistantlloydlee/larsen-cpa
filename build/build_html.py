@@ -568,7 +568,6 @@ contact = head(
           <input type="hidden" name="_subject" value="Website enquiry: Christopher Larsen, CPA">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" value="{BASE}contact.html?sent=1">
           <div class="hp" aria-hidden="true">
             <label for="_honey">Leave this field empty</label>
             <input id="_honey" name="_honey" type="text" tabindex="-1" autocomplete="off">
