@@ -299,3 +299,11 @@ footer.site .licence strong{color:rgba(255,255,255,.92);font-weight:600}
 @media (prefers-reduced-motion:reduce){
   *{transition:none !important;animation:none !important}
 }
+
+/* --- form status --------------------------------------------------------- */
+.form-status{
+  grid-column:1 / -1;margin:0;font-size:.95rem;border-left:3px solid var(--line-strong);
+  padding:12px 0 12px 16px;color:var(--ink);
+}
+.form-status.ok{border-left-color:#1F6B3A}
+.form-status.bad{border-left-color:#8C2B2B}

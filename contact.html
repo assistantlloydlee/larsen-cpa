@@ -63,7 +63,7 @@
     <div class="grid-2">
       <div>
         <h2 class="mb26">Send a message</h2>
-        <form class="form" action="https://formsubmit.co/136244dd4948b0a2cc7d588909bc84ab" method="post">
+        <form class="form" id="contact-form" action="https://formsubmit.co/136244dd4948b0a2cc7d588909bc84ab" method="post">
           <input type="hidden" name="_subject" value="Website enquiry: Christopher Larsen, CPA">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
@@ -98,7 +98,44 @@
           <p class="note">Messages are delivered to <a href="mailto:contact@larsen-cpa.com">contact@larsen-cpa.com</a>.
             Please do not include confidential documents in this form; we will send you a
             secure way to transmit the lease and records once we are in touch.</p>
+          <p class="form-status" role="status" aria-live="polite" hidden></p>
         </form>
+
+<script>
+/* Progressive enhancement: keep the visitor on the page and confirm inline.
+   Without JavaScript the form still posts to the relay and shows the relay's
+   own confirmation screen. */
+(function () {
+  var form = document.getElementById('contact-form');
+  if (!form || !window.fetch || !window.FormData) return;
+  var note = '', original = form.getAttribute('action');
+  note = original.replace('https://formsubmit.co/', 'https://formsubmit.co/ajax/');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var status = form.querySelector('.form-status');
+    var button = form.querySelector('button[type=submit]');
+    status.hidden = false;
+    status.className = 'form-status';
+    status.textContent = 'Sending your message.';
+    button.disabled = true;
+    fetch(note, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (!d || String(d.success) === 'false') throw new Error('relay');
+        form.reset();
+        status.className = 'form-status ok';
+        status.textContent = 'Thank you. Your message has been sent.';
+      })
+      .catch(function () {
+        status.className = 'form-status bad';
+        status.textContent = 'Sorry, the message could not be sent. Please write to ' +
+          'contact@larsen-cpa.com instead.';
+      })
+      .then(function () { button.disabled = false; });
+  });
+})();
+</script>
+
       </div>
       <div>
         <h2 class="mb26">Direct</h2>
