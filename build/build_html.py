@@ -489,10 +489,6 @@ about = head(
           holding license No. {LICENCE}. He has prior experience in the Big Four, working in
           strategy and management consulting at Ernst &amp; Young (EY) and accounting and
           advisory at Deloitte. He also holds a CPA license in New York.</p>
-        <p>His work sits where accounting and real estate documents meet. A lease is a
-          contract written in rentable-area definitions, expense categories, and
-          exclusions; an operating expense reconciliation is an accounting document built
-          on top of it.</p>
         <p>He holds a Bachelor of Science in Accounting from the Leventhal School of
           Accounting at the University of Southern California, along with a Bachelor of
           Business Administration from the Marshall School of Business.</p>
