@@ -117,6 +117,33 @@ def build_favicons():
     print("favicon: monogram tile %dpx -> ico + png set" % tile.size[0])
 
 
+def key_plate(im, opaque_at=208, clear_at=248):
+    """Drop the flat white plate the brand lockup is supplied on.
+
+    The mark arrives as dark artwork on an opaque near-white ground, which paints a
+    visible rectangle on --paper (#FBFAF7). Pixels at or above `clear_at` become
+    fully transparent, pixels at or below `opaque_at` keep full opacity, and the
+    anti-aliased boundary ramps between the two so the cut stays clean. Applied
+    after resizing, so the downscale's own anti-aliasing is what gets ramped.
+    """
+    im = im.convert("RGBA")
+    px = im.load()
+    W, H = im.size
+    span = clear_at - opaque_at
+    for y in range(H):
+        for x in range(W):
+            r, g, b, a = px[x, y]
+            m = min(r, g, b)
+            if m >= clear_at:
+                al = 0
+            elif m <= opaque_at:
+                al = 255
+            else:
+                al = int(round(255 * (clear_at - m) / span))
+            px[x, y] = (r, g, b, min(a, al) if a < 255 else al)
+    return im
+
+
 def build_logos():
     for src, dst, height in (("logo.png", "logo.png", 160),
                              ("logo-reverse.png", "logo-reverse.png", 200)):
@@ -125,8 +152,15 @@ def build_logos():
         w, h = im.size
         nw = round(w * height / h)
         out = os.path.join(IMG, dst)
-        im.resize((nw, height), Image.LANCZOS).save(out, optimize=True)
-        print("%-20s %4dK -> %-20s %4dK (%dx%d)" % (src, kb(p), dst, kb(out), nw, height))
+        # Resize first, then key the plate: the mark keeps the downscale's own
+        # anti-aliasing, and the surrounding pixels become the page, not a plate.
+        im = im.resize((nw, height), Image.LANCZOS)
+        if dst == "logo.png":
+            im = key_plate(im)
+        im.save(out, optimize=True)
+        a = im.split()[3].getextrema()
+        print("%-20s %4dK -> %-20s %4dK (%dx%d) alpha %s"
+              % (src, kb(p), dst, kb(out), nw, height, a))
 
 
 def build_hero():

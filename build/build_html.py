@@ -201,8 +201,8 @@ index = head(
     <div class="scrim"></div>
     <div class="over"><div class="wrap">
       <p class="kicker">The practice</p>
-      <p>Lease reconciliation is a document exercise. The lease, the reconciliation, and
-        the supporting schedules either agree, or they do not.</p>
+      <p>Either the lease, the reconciliation statement and the supporting schedules
+        agree, or they do not. There is no middle ground to argue.</p>
     </div></div>
   </div>
 
@@ -488,14 +488,13 @@ about = head(
       <div>
         <h2 class="mb22">Christopher D. Larsen, CPA</h2>
         <p>Christopher Larsen is a California licensed Certified Public Accountant,
-          holding license No. {LICENCE}. He has a Big Four consulting background, working in
-          strategy and management consulting at Ernst &amp; Young (EY) and in media and
-          entertainment advisory at Deloitte. He also holds a CPA license in New York.</p>
+          holding license No. {LICENCE}. He has prior experience in the Big Four, working in
+          strategy and management consulting at Ernst &amp; Young (EY) and accounting and
+          advisory at Deloitte. He also holds a CPA license in New York.</p>
         <p>His work sits where accounting and real estate documents meet. A lease is a
           contract written in rentable-area definitions, expense categories, and
           exclusions; an operating expense reconciliation is an accounting document built
-          on top of it. Reviewing one against the other is detailed, unglamorous work, and
-          it is most of what this practice does.</p>
+          on top of it.</p>
         <p>He holds a Bachelor of Science in Accounting from the Leventhal School of
           Accounting at the University of Southern California, along with a Bachelor of
           Business Administration from the Marshall School of Business.</p>
