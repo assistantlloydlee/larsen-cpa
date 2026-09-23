@@ -92,7 +92,6 @@ def head(title, desc, canonical, schema, extra=""):
 
 <div class="topbar"><div class="wrap">
   <span class="lic">California CPA &middot; License No. {LICENCE}</span>
-  <span>Formerly EY &amp; Deloitte &middot; Serving clients statewide</span>
 </div></div>
 
 <header class="masthead"><div class="wrap">
