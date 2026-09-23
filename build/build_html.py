@@ -200,8 +200,7 @@ index = head(
     <div class="scrim"></div>
     <div class="over"><div class="wrap">
       <p class="kicker">The practice</p>
-      <p>The lease sets what you owe. The reconciliation says what you were charged.
-        That difference is the work.</p>
+      <p>Noting where the lease doesn't match the charges</p>
     </div></div>
   </div>
 
