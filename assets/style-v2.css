@@ -1,0 +1,190 @@
+/* ==========================================================================
+   Larsen CPA - layout v2 (preview)
+   Loaded after assets/style.css. Nothing in style.css changes; this sheet only
+   adds the primitives the restructured navigation, home page and primary
+   service templates need, and the responsive rules that follow from six
+   navigation items.
+
+   Register: established professional firm. Typography and rules carry the
+   structure. Cards are authorised for the new layout and are kept inside the
+   register: 1px rules, existing tokens, no shadows, no gradients, no radius,
+   no transforms.
+
+   New primitives
+     .cards / .card / .card--primary / .card--wide
+     .card__list .card__price .card__note .card__foot .card__link
+     .callout / .callout--dark
+     .note-line
+     .page-head
+     .cred-line
+
+   Colour: only the :root tokens. The on-dark callout reuses the white and
+   rgba(255,255,255,*) values already present in style.css (.cta p, .cta .btn,
+   footer.site); no new colour is introduced.
+   ========================================================================== */
+
+/* --- cards --------------------------------------------------------------- */
+.cards{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  align-items:stretch;
+}
+
+.card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  border:1px solid var(--line-strong);
+  background:var(--paper);
+  padding:36px 36px 32px;
+}
+.card--primary{border-top:2px solid var(--navy)}
+.card:hover,.card:focus-within{border-color:var(--navy)}
+
+.card h2{font-size:1.6rem;margin-bottom:14px}
+.card h3{font-size:1.3rem;margin-bottom:10px}
+.card__body{max-width:64ch}
+
+.card__list{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.card__list li{font-size:.95rem;color:var(--slate);padding-left:18px;position:relative}
+.card__list li::before{
+  content:"";position:absolute;left:0;top:.62em;width:7px;height:1px;background:var(--gold);
+}
+
+.card__note{
+  margin-top:26px;border-top:1px solid var(--line);padding-top:18px;
+  font-size:.95rem;color:var(--slate);
+}
+.card__note p{margin:0}
+.card__note p + p{margin-top:9px}
+/* the price line outranks the note paragraph rules above */
+.card .card__price{
+  font-family:var(--serif);font-weight:600;color:var(--navy);
+  font-size:1.3rem;line-height:1.3;letter-spacing:-.01em;margin:0 0 9px;
+}
+
+.card__foot{margin-top:auto;padding-top:28px}
+.card__link{
+  display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--navy);
+}
+.card__link:hover{text-decoration:underline;text-underline-offset:4px}
+
+/* wide variant: the smaller supporting section on the home page */
+.card--wide{padding:32px 36px}
+.card__inner{
+  display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);
+  gap:44px;align-items:end;
+}
+.card__inner .card__foot{margin-top:0;padding-top:0;padding-bottom:4px}
+.card__inner h2{margin-bottom:14px}
+
+/* --- price notice -------------------------------------------------------- */
+.callout{
+  border:1px solid var(--line-strong);
+  border-top:2px solid var(--gold);
+  background:var(--paper);
+  padding:28px 30px;
+}
+.callout p{font-size:.95rem;color:var(--slate);margin:0}
+.callout p + p{margin-top:9px}
+/* label and price outrank the paragraph rule above */
+.callout > .callout__label{
+  font-size:.68rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--slate);margin:0 0 12px;
+}
+.callout > .callout__price{
+  font-family:var(--serif);font-weight:600;color:var(--navy);
+  font-size:clamp(1.45rem,2.1vw,1.85rem);line-height:1.26;letter-spacing:-.012em;
+  margin:0 0 12px;
+}
+
+.callout--dark{
+  background:transparent;
+  border-color:rgba(255,255,255,.35);
+  border-top-color:var(--gold);
+  max-width:58ch;
+  margin-bottom:30px;
+}
+.callout--dark > .callout__label{color:rgba(255,255,255,.72)}
+.callout--dark > .callout__price{color:#fff}
+.callout--dark p{font-size:.95rem;color:rgba(255,255,255,.85)}
+
+/* --- one line under a rule ---------------------------------------------- */
+.note-line{
+  margin-top:30px;border-top:1px solid var(--line);padding-top:20px;
+  color:var(--slate);font-size:.98rem;max-width:72ch;
+}
+section.alt .note-line{border-top-color:var(--line-strong)}
+
+/* --- page head: intro beside the page aside ------------------------------ */
+.page-head{
+  display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);
+  gap:60px;align-items:start;
+}
+.page-head h1{margin-bottom:24px}
+.page-head .lede{max-width:56ch}
+
+/* --- credibility line ---------------------------------------------------- */
+.cred-line{border-top:1px solid var(--line-strong);padding-top:26px}
+.cred-line p{
+  font-family:var(--serif);color:var(--navy);font-size:1.12rem;line-height:1.5;
+  max-width:72ch;margin:0;
+}
+
+/* --- responsive ---------------------------------------------------------- */
+/* Six navigation items need 1105px beside the logo to hold one line, so the
+   masthead stacks from 1160px down and the nav never wraps under the logo. */
+@media (max-width:1160px){
+  .masthead .wrap{flex-direction:column;align-items:flex-start;gap:16px}
+  nav.main{gap:22px}
+}
+
+/* Hit area only: the nav and footer links stay 23px tall so the masthead
+   geometry is unchanged, and the transparent overlay brings the target to
+   roughly 35x31px. No visual change. */
+nav.main a,footer.site ul a{position:relative}
+nav.main a::after,footer.site ul a::after{
+  content:"";position:absolute;left:-6px;right:-6px;top:-4px;bottom:-4px;
+}
+
+@media (max-width:900px){
+  .cards{grid-template-columns:1fr;gap:24px}
+  .card{padding:30px 28px 26px}
+  .card--wide{padding:28px}
+  .card__inner{grid-template-columns:1fr;gap:26px;align-items:start}
+  .card__inner .card__foot{padding-bottom:0}
+  .page-head{grid-template-columns:1fr;gap:34px}
+  .callout{padding:26px 28px}
+}
+
+@media (max-width:520px){
+  .card{padding:26px 22px 22px}
+  .card--wide{padding:26px 22px}
+  .callout{padding:22px}
+  .cred-line p{font-size:1.04rem}
+  nav.main{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px;width:100%}
+}
+
+/* ==========================================================================
+   Build additions (copy lane, 2026-09-24). Loaded as part of style-v2.css.
+   Only the utilities the seven built pages need on top of the design sheet.
+   ========================================================================== */
+
+/* single column page head: pages whose intro takes the full measure */
+.page-head--full{grid-template-columns:minmax(0,70ch)}
+
+/* three-across checklist: the "How I work" block on About */
+ul.checks--three{grid-template-columns:repeat(3,1fr);gap:14px 40px}
+ul.checks--three li{font-size:.97rem;line-height:1.6}
+
+/* direct-details list inside a card: tighter than the standalone panel */
+dl.detail--tight dt{padding-top:18px}
+dl.detail--tight dt:first-of-type{padding-top:0}
+dl.detail--tight dd{margin:7px 0 18px;font-size:1.08rem}
+dl.detail--tight + .quiet{border-top:1px solid var(--line);padding-top:18px;margin-top:4px}
+
+@media (max-width:900px){
+  ul.checks--three{grid-template-columns:1fr}
+}
