@@ -37,7 +37,9 @@ always contingency-based, and no recovery amount is promised.
 ## Pages
 
 - [Home](https://larsen-cpa.com/): what the practice does, how an engagement runs.
-- [Services](https://larsen-cpa.com/services.html): services and common questions.
+- [Real Estate Accounting](https://larsen-cpa.com/real-estate-accounting.html): lease compliance, CAM reviews, real estate accounting.
+- [Personal Tax Preparation](https://larsen-cpa.com/personal-tax-preparation.html): individual and family tax preparation.
+- [Other Services](https://larsen-cpa.com/other-services.html): general accounting services.
 - [About](https://larsen-cpa.com/about.html): background, credentials, license number.
 - [Contact](https://larsen-cpa.com/contact.html): enquiry form and email address.
 - [Privacy](https://larsen-cpa.com/privacy.html): what the site collects.
