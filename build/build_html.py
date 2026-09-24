@@ -16,7 +16,7 @@ import os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "site")
 BASE = "https://larsen-cpa.com/"
-EMAIL = "contact@larsen-cpa.com"
+EMAIL = "connect@larsen-cpa.com"
 # FormSubmit relay. The random-form key hides the delivery mailbox from the page source.
 FORM_ACTION = "https://formsubmit.co/136244dd4948b0a2cc7d588909bc84ab"
 LICENCE = "151422"
@@ -54,7 +54,7 @@ FORM_STATUS_JS = """
       .catch(function () {
         status.className = 'form-status bad';
         status.textContent = 'Sorry, the message could not be sent. Please write to ' +
-          'contact@larsen-cpa.com instead.';
+          'connect@larsen-cpa.com instead.';
       })
       .then(function () { button.disabled = false; });
   });
@@ -159,7 +159,7 @@ BIZ_SCHEMA = """{
   "name":"Christopher Larsen, CPA",
   "description":"California CPA practice providing lease compliance reviews, CAM audits, and lease accounting advisory for real estate tenants, owners, and operators.",
   "url":"https://larsen-cpa.com/",
-  "email":"contact@larsen-cpa.com",
+  "email":"connect@larsen-cpa.com",
   "areaServed":{"@type":"State","name":"California"},
   "address":{"@type":"PostalAddress","addressRegion":"CA","addressCountry":"US"},
   "founder":{"@type":"Person","@id":"https://larsen-cpa.com/about.html#person"},
@@ -451,7 +451,7 @@ person_schema = """{
   "name":"Christopher D. Larsen",
   "jobTitle":"Certified Public Accountant",
   "url":"https://larsen-cpa.com/about.html",
-  "email":"contact@larsen-cpa.com",
+  "email":"connect@larsen-cpa.com",
   "address":{"@type":"PostalAddress","addressRegion":"CA","addressCountry":"US"},
   "hasCredential":[
     {"@type":"EducationalOccupationalCredential","credentialCategory":"license",
@@ -574,9 +574,9 @@ contact_schema = """{
 }"""
 
 contact = head(
-    "Contact &mdash; Christopher Larsen, CPA | contact@larsen-cpa.com",
+    "Contact &mdash; Christopher Larsen, CPA | connect@larsen-cpa.com",
     "Contact Christopher Larsen, CPA for lease compliance, CAM audits, and real estate "
-    "accounting work in California. Email contact@larsen-cpa.com or send a message "
+    "accounting work in California. Email connect@larsen-cpa.com or send a message "
     "through the site.",
     "contact.html",
     contact_schema,
