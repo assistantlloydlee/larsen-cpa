@@ -83,7 +83,7 @@
     <div class="grid-2">
       <div>
         <h2 class="mb26">Send a Message</h2>
-        <form class="form" id="contact-form" action="mailto:connect@larsen-cpa.com" method="post" enctype="text/plain">
+        <form class="form" id="contact-form" action="https://script.google.com/macros/s/AKfycby24n3VvqhKoes99XynrG359jtjtu4ZGYM4vE66Ujshcg27wtAAanLXQA2z7BAUuF6C/exec" method="post" accept-charset="UTF-8">
           <div class="field">
             <label for="name">Name</label>
             <input id="name" name="name" type="text" autocomplete="name" required>
@@ -108,39 +108,17 @@
           <div class="field full">
             <button class="btn" type="submit">Send Message</button>
           </div>
-          <p class="note">Sending opens your own email program with the message ready to send
-            to connect@larsen-cpa.com, so your enquiry goes straight to Christopher Larsen CPA and nowhere else.
+          <div class="field full" aria-hidden="true"
+               style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">
+            <label for="website">Website</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <p class="note">Sending delivers your enquiry straight to Christopher Larsen CPA through
+            this site's own form. Your message is emailed to the practice and no third-party
+            form service is used, so you do not need to open your own email program.
             Please do not include confidential documents. Secure transfer instructions come with the reply.</p>
           <p class="form-status" role="status" aria-live="polite" hidden></p>
         </form>
-
-<script>
-/* First-party submission: the visitor's own mail program sends the message
-   straight to connect@larsen-cpa.com. No third-party form service is used and
-   no data passes through any other party. The visitor is then shown the
-   confirmation page on this site. Without JavaScript the form falls back to
-   the same address through the mailto action on the form element. */
-(function () {
-  var form = document.getElementById('contact-form');
-  if (!form || !window.FormData) return;
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var f = new FormData(form);
-    function val(k) { var v = f.get(k); return v ? String(v) : ''; }
-    var subject = 'Website enquiry from ' + (val('name') || 'a visitor');
-    var body = 'Name: ' + val('name') + '\n' +
-               'Email: ' + val('email') + '\n' +
-               'Phone: ' + val('phone') + '\n' +
-               'Company: ' + val('company') + '\n\n' +
-               val('message');
-    var href = 'mailto:connect@larsen-cpa.com' +
-               '?subject=' + encodeURIComponent(subject) +
-               '&body=' + encodeURIComponent(body);
-    window.location.href = href;
-    setTimeout(function () { window.location.href = 'thanks.html'; }, 900);
-  });
-})();
-</script>
 
       </div>
       <div>
