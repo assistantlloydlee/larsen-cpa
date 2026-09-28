@@ -120,6 +120,28 @@
           <p class="form-status" role="status" aria-live="polite" hidden></p>
         </form>
 
+<script>
+/* First-party submission. The form posts to this practice's own Apps Script
+   endpoint (no third-party form relay and no mailto), which emails the enquiry
+   to the practice. The POST is sent into a hidden frame so the visitor stays on
+   this site, and the confirmation page is then shown. Without JavaScript the
+   form still posts to the same endpoint; only the confirmation redirect is
+   skipped. */
+(function () {
+  var form = document.getElementById('contact-form');
+  if (!form || !window.FormData) return;
+  var sink = document.createElement('iframe');
+  sink.name = 'contact-sink';
+  sink.setAttribute('aria-hidden', 'true');
+  sink.style.cssText = 'display:none;width:0;height:0;border:0';
+  document.body.appendChild(sink);
+  form.setAttribute('target', 'contact-sink');
+  form.addEventListener('submit', function () {
+    setTimeout(function () { window.location.href = 'thanks.html'; }, 900);
+  });
+})();
+</script>
+
       </div>
       <div>
         <h2 class="mb22">Helpful Information to Include</h2>
