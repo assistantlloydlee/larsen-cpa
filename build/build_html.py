@@ -154,9 +154,10 @@ FOOTER = f"""</main>
 
 BIZ_SCHEMA = """{
   "@context":"https://schema.org",
-  "@type":["LocalBusiness","ProfessionalService"],
+  "@type":["LocalBusiness","ProfessionalService","AccountingService"],
   "@id":"https://larsen-cpa.com/#business",
   "name":"Christopher Larsen, CPA",
+  "alternateName":"Christopher Larsen CPA",
   "description":"California CPA practice providing lease compliance reviews, CAM audits, and lease accounting advisory for real estate tenants, owners, and operators.",
   "url":"https://larsen-cpa.com/",
   "email":"connect@larsen-cpa.com",
