@@ -11,6 +11,12 @@ Outputs:
   lloyd/larsen_cpa/site/assets/fonts/* self-hosted Inter / Source Serif 4 (latin)
 
 No generated imagery: the favicon is a crop of the licensed brand mark.
+
+SUPERSEDED for logos / hero / fonts by build/engineering_pass.py (2026-09-30).
+Running this file as-is reintroduces the defects the engineering review flagged:
+oversized logos (160/200px tall), duplicate font files (the 400 and 600 weight
+requests return the same variable font), and a single eager hero image. See
+engineering_pass.py for the corrected, idempotent versions.
 """
 import os
 import re

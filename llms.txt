@@ -1,9 +1,12 @@
 # Christopher Larsen, CPA
 
-> A California CPA practice focused on real estate accounting: lease compliance
-> reviews, CAM (common area maintenance) audits, and lease accounting advisory for
-> commercial tenants, owners, and operators. Based in Southern California, licensed
-> and serving clients statewide.
+> A California CPA practice with three areas of focus: real estate accounting,
+> small business accounting and tax, and personal tax preparation. For real
+> estate, the work centers on lease compliance reviews and CAM (common area
+> maintenance) audits for commercial tenants, owners, and operators. For small
+> businesses, bookkeeping, monthly close, financial statements, and federal and
+> California business tax returns. Based in Southern California, licensed and
+> serving clients statewide.
 
 ## Facts
 
@@ -25,6 +28,10 @@ errors, and improperly billed capital costs.
 
 ## Secondary services
 
+- Small business accounting: bookkeeping and monthly close, financial statements,
+  federal and California business tax returns, payroll and 1099 coordination, and
+  QuickBooks and Xero setup and cleanup.
+- Entity selection and formation guidance, budgeting and forecasting, and special projects.
 - Lease accounting advisory: ASC 842 compliance, lease abstraction, lease accounting cleanup.
 - Commercial lease audits beyond CAM: base rent verification, percentage rent audits.
 - Landlord-side and property management accounting support.
@@ -38,8 +45,9 @@ always contingency-based, and no recovery amount is promised.
 
 - [Home](https://larsen-cpa.com/): what the practice does, how an engagement runs.
 - [Real Estate Accounting](https://larsen-cpa.com/real-estate-accounting.html): lease compliance, CAM reviews, real estate accounting.
+- [Small Business Accounting](https://larsen-cpa.com/small-business-accounting.html): bookkeeping, financial statements, business tax returns.
 - [Personal Tax Preparation](https://larsen-cpa.com/personal-tax-preparation.html): individual and family tax preparation.
-- [Other Services](https://larsen-cpa.com/other-services.html): general accounting services.
+- [Additional Services](https://larsen-cpa.com/other-services.html): entity selection, budgeting and forecasting, special projects.
 - [About](https://larsen-cpa.com/about.html): background, credentials, license number.
 - [Contact](https://larsen-cpa.com/contact.html): enquiry form and email address.
 - [Privacy](https://larsen-cpa.com/privacy.html): what the site collects.

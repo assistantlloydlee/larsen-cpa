@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Contact | Christopher Larsen CPA, Los Angeles</title>
-<meta name="description" content="Contact Christopher Larsen CPA regarding a CAM and lease compliance review, real estate accounting, or personal tax preparation.">
+<meta name="description" content="Contact Christopher Larsen CPA regarding a CAM and lease compliance review, real estate accounting, small business accounting or tax, or personal tax preparation.">
 <link rel="canonical" href="https://larsen-cpa.com/contact.html">
 <meta name="theme-color" content="#0A2E5C">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Christopher Larsen CPA">
 <meta property="og:title" content="Contact | Christopher Larsen CPA, Los Angeles">
-<meta property="og:description" content="Contact Christopher Larsen CPA regarding a CAM and lease compliance review, real estate accounting, or personal tax preparation.">
+<meta property="og:description" content="Contact Christopher Larsen CPA regarding a CAM and lease compliance review, real estate accounting, small business accounting or tax, or personal tax preparation.">
 <meta property="og:url" content="https://larsen-cpa.com/contact.html">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32">
@@ -27,6 +27,7 @@
   "mainEntity":{"@id":"https://larsen-cpa.com/#business"}
 }
 </script>
+<noscript><style>@media (max-width:520px),(max-width:960px) and (max-height:500px){nav.main{display:grid;grid-template-columns:1fr;gap:0;width:100%}nav.main a{display:flex;align-items:center;min-height:48px;padding:2px 0;border-bottom:1px solid rgba(10,46,92,.16)}.nav-toggle{display:none}}</style></noscript>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -37,11 +38,14 @@
 
 <header class="masthead"><div class="wrap">
   <a class="logo" href="index.html" aria-label="Christopher Larsen CPA, home">
-    <img src="assets/img/logo.png" alt="Christopher Larsen CPA" width="731" height="160">
+    <img src="assets/img/logo.png" alt="Christopher Larsen CPA" width="347" height="76">
   </a>
-  <nav class="main" aria-label="Primary">
+  <button class="nav-toggle" type="button" aria-expanded="false"
+          aria-controls="primary-nav">Menu</button>
+  <nav class="main" id="primary-nav" aria-label="Primary">
     <a href="index.html">Home</a>
     <a href="real-estate-accounting.html">Real Estate Accounting</a>
+    <a href="small-business-accounting.html">Small Business Accounting</a>
     <a href="personal-tax-preparation.html">Personal Tax Preparation</a>
     <a href="other-services.html">Other Services</a>
     <a href="about.html">About</a>
@@ -56,10 +60,12 @@
       <div>
         <p class="eyebrow">Contact</p>
         <h1>Contact Christopher Larsen CPA</h1>
-        <p class="lede">Please describe the matter briefly. For a lease review, the lease and
-          the most recent reconciliation are requested. For tax preparation, the prior year
-          return and current income documents are requested. The scope and fee are confirmed in
-          writing before any work begins.</p>
+        <p class="lede">Please describe the matter briefly.<span class="m-hide"> For a lease review, the
+          lease and the most recent reconciliation are requested. For business accounting, recent
+          bank statements and the prior year return are requested. For tax preparation, the prior
+          year return and current income documents are requested.</span><span class="m-only"> The
+          checklist on this page lists what each service needs.</span> The scope and fee are
+          confirmed in writing before any work begins.</p>
       </div>
       <div>
         <div class="card card--primary">
@@ -102,6 +108,16 @@
                    placeholder="Optional">
           </div>
           <div class="field full">
+            <label for="service">Service</label>
+            <select id="service" name="service">
+              <option value="">Select a service</option>
+              <option>Real Estate Accounting</option>
+              <option>Small business accounting or tax</option>
+              <option>Personal Tax Preparation</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field full">
             <label for="message">Message</label>
             <textarea id="message" name="message" required></textarea>
           </div>
@@ -114,30 +130,76 @@
             <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
           </div>
           <p class="note">Sending delivers your enquiry straight to Christopher Larsen CPA through
-            this site's own form. Your message is emailed to the practice and no third-party
-            form service is used, so you do not need to open your own email program.
+            this site's own form.<span class="m-hide"> Your message is emailed to the practice and no
+            third-party form service is used, so you do not need to open your own email program.</span>
             Please do not include confidential documents. Secure transfer instructions come with the reply.</p>
           <p class="form-status" role="status" aria-live="polite" hidden></p>
         </form>
 
 <script>
-/* First-party submission. The form posts to this practice's own Apps Script
-   endpoint (no third-party form relay and no mailto), which emails the enquiry
-   to the practice. The POST is sent into a hidden frame so the visitor stays on
-   this site, and the confirmation page is then shown. Without JavaScript the
-   form still posts to the same endpoint; only the confirmation redirect is
-   skipped. */
+/* First-party submission with a real success check.
+
+   The form posts to this practice's own endpoint. The confirmation page is
+   shown ONLY when the endpoint answers with a successful (2xx) HTTP response,
+   so a failed send can no longer look like a success. If the request fails or
+   cannot be confirmed, the visitor sees the error and the direct email address
+   instead of the thank-you page, with their details still in the form.
+
+   Honest limit: the endpoint is a third party reached cross-origin, so the
+   site can only read what the browser is allowed to. A confirmed 2xx means the
+   endpoint accepted the POST; it is not proof the message reached the mailbox
+   (that is the endpoint's own job). When the browser cannot read the response
+   at all, the visitor is sent to the email fallback rather than a false
+   confirmation. With JavaScript off the form posts natively, as before. */
 (function () {
   var form = document.getElementById('contact-form');
-  if (!form || !window.FormData) return;
-  var sink = document.createElement('iframe');
-  sink.name = 'contact-sink';
-  sink.setAttribute('aria-hidden', 'true');
-  sink.style.cssText = 'display:none;width:0;height:0;border:0';
-  document.body.appendChild(sink);
-  form.setAttribute('target', 'contact-sink');
-  form.addEventListener('submit', function () {
-    setTimeout(function () { window.location.href = 'thanks.html'; }, 900);
+  var status = form ? form.querySelector('.form-status') : null;
+  if (!form || !window.FormData || !window.fetch) return;  /* native POST fallback */
+
+  var btn = form.querySelector('button[type="submit"]');
+
+  function show(kind, html) {
+    if (!status) return;
+    status.className = 'form-status' + (kind ? ' ' + kind : '');
+    status.innerHTML = html;
+    status.hidden = false;
+  }
+  function busy(on) {
+    if (!btn) return;
+    btn.disabled = on;
+    btn.setAttribute('aria-busy', on ? 'true' : 'false');
+    btn.textContent = on ? 'Sending Message' : 'Send Message';
+  }
+  function notSent() {
+    busy(false);
+    show('bad', '<strong>Your message was not sent.</strong> Please email ' +
+      '<a href="mailto:connect@larsen-cpa.com">connect@larsen-cpa.com</a> ' +
+      'directly so your enquiry is not missed. Your details are still in the form above.');
+  }
+
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var action = form.getAttribute('action');
+    if (!action) { notSent(); return; }
+    busy(true);
+    show('', 'Sending your message&hellip;');
+
+    var ctl = ('AbortController' in window) ? new AbortController() : null;
+    var timer = setTimeout(function () { if (ctl) ctl.abort(); }, 15000);
+
+    fetch(action, { method: 'POST', body: new FormData(form), mode: 'cors',
+                    signal: ctl ? ctl.signal : undefined })
+      .then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.text().catch(function () { return ''; });
+      })
+      .then(function (body) {
+        var t = String(body || '').trim().toLowerCase();
+        if (t.indexOf('error') === 0 || t === 'false') throw new Error('endpoint reported failure');
+        clearTimeout(timer);
+        window.location.href = 'thanks.html';
+      })
+      .catch(function () { clearTimeout(timer); notSent(); });
   });
 })();
 </script>
@@ -147,6 +209,7 @@
         <h2 class="mb22">Helpful Information to Include</h2>
         <ul class="checks">
       <li>Real Estate Reviews. The property address, the leased premises, and the reconciliation period.</li>
+      <li>Business Accounting. Recent bank and credit card statements, the prior year return, and the current accounting file, if available.</li>
       <li>Lease and Statements. Whether the lease and the most recent CAM or operating expense statement are available.</li>
       <li>Tax Returns. The tax years involved and the types of income to be reported.</li>
       <li>Purpose. The reason for the inquiry and the decision under consideration.</li>
@@ -160,14 +223,15 @@
   <div class="cols">
     <div>
       <img src="assets/img/logo-reverse.png" alt="Christopher Larsen CPA"
-           width="914" height="200" loading="lazy">
-      <p class="about">Christopher Larsen CPA is a Los Angeles accounting practice specializing in real estate accounting and personal tax preparation.</p>
+           width="420" height="92" loading="lazy">
+      <p class="about">Christopher Larsen CPA is a Los Angeles accounting practice specializing in real estate accounting, small business accounting and tax, and personal tax preparation.</p>
     </div>
     <div>
       <h2 class="fh">Pages</h2>
-      <ul>
+      <ul class="pages">
         <li><a href="index.html">Home</a></li>
         <li><a href="real-estate-accounting.html">Real Estate Accounting</a></li>
+        <li><a href="small-business-accounting.html">Small Business Accounting</a></li>
         <li><a href="personal-tax-preparation.html">Personal Tax Preparation</a></li>
         <li><a href="other-services.html">Other Services</a></li>
         <li><a href="about.html">About</a></li>
@@ -193,5 +257,26 @@
   </div>
 </div></footer>
 
+<script>
+/* Phone navigation. On phones - portrait and landscape - the masthead shows
+   a single Menu control, so
+   the seven links stop filling the first screen. With JavaScript off the nav
+   renders as a plain list instead (see the noscript rule in the head). */
+(function () {
+  var h = document.querySelector(".masthead"),
+      t = document.querySelector(".nav-toggle"),
+      n = document.getElementById("primary-nav");
+  if (!h || !t || !n) return;
+  t.addEventListener("click", function () {
+    var open = h.classList.toggle("nav-open");
+    t.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  window.matchMedia("(max-width:520px), (max-width:960px) and (max-height:500px)").addEventListener("change", function (e) {
+    if (e.matches) return;
+    h.classList.remove("nav-open");
+    t.setAttribute("aria-expanded", "false");
+  });
+})();
+</script>
 </body>
 </html>

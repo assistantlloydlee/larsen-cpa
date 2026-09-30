@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Other Services | Christopher Larsen CPA, Los Angeles</title>
-<meta name="description" content="General accounting services, including bookkeeping, financial statement preparation, business tax returns, payroll coordination, and accounting system implementation.">
+<title>Additional Services | Christopher Larsen CPA, Los Angeles</title>
+<meta name="description" content="Additional advisory services for small businesses and individuals, including entity selection and formation guidance, budgeting and forecasting, and special projects.">
 <link rel="canonical" href="https://larsen-cpa.com/other-services.html">
 <meta name="theme-color" content="#0A2E5C">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Christopher Larsen CPA">
-<meta property="og:title" content="Other Services | Christopher Larsen CPA, Los Angeles">
-<meta property="og:description" content="General accounting services, including bookkeeping, financial statement preparation, business tax returns, payroll coordination, and accounting system implementation.">
+<meta property="og:title" content="Additional Services | Christopher Larsen CPA, Los Angeles">
+<meta property="og:description" content="Additional advisory services for small businesses and individuals, including entity selection and formation guidance, budgeting and forecasting, and special projects.">
 <meta property="og:url" content="https://larsen-cpa.com/other-services.html">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32">
@@ -32,6 +32,7 @@
   "knowsAbout":["CAM and lease compliance review","Lease compliance","ASC 842","Operating expense reconciliation","Lease abstraction","Individual income tax preparation","Schedule E rental income"]
 }
 </script>
+<noscript><style>@media (max-width:520px),(max-width:960px) and (max-height:500px){nav.main{display:grid;grid-template-columns:1fr;gap:0;width:100%}nav.main a{display:flex;align-items:center;min-height:48px;padding:2px 0;border-bottom:1px solid rgba(10,46,92,.16)}.nav-toggle{display:none}}</style></noscript>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -42,11 +43,14 @@
 
 <header class="masthead"><div class="wrap">
   <a class="logo" href="index.html" aria-label="Christopher Larsen CPA, home">
-    <img src="assets/img/logo.png" alt="Christopher Larsen CPA" width="731" height="160">
+    <img src="assets/img/logo.png" alt="Christopher Larsen CPA" width="347" height="76">
   </a>
-  <nav class="main" aria-label="Primary">
+  <button class="nav-toggle" type="button" aria-expanded="false"
+          aria-controls="primary-nav">Menu</button>
+  <nav class="main" id="primary-nav" aria-label="Primary">
     <a href="index.html">Home</a>
     <a href="real-estate-accounting.html">Real Estate Accounting</a>
+    <a href="small-business-accounting.html">Small Business Accounting</a>
     <a href="personal-tax-preparation.html">Personal Tax Preparation</a>
     <a href="other-services.html" aria-current="page">Other Services</a>
     <a href="about.html">About</a>
@@ -59,10 +63,9 @@
   <section class="tight"><div class="wrap">
     <div class="page-head page-head--full">
       <div>
-        <p class="eyebrow">Other Services</p>
-        <h1>General Accounting Services</h1>
-        <p class="lede">Accounting services for small businesses and individuals beyond real
-          estate accounting and personal tax preparation.</p>
+        <p class="eyebrow">Additional Services</p>
+        <h1>Additional Services</h1>
+        <p class="lede">Additional advisory services for small businesses and individuals.</p>
       </div>
     </div>
   </div></section>
@@ -74,32 +77,12 @@
     </div>
     <ol class="services">
       <li>
-        <h3>Bookkeeping and Monthly Reconciliations</h3>
-        <p>Monthly journal entries, bank and credit card reconciliations, and a reliable month-end close.</p>
-      </li>
-      <li>
-        <h3>Financial Statement Preparation</h3>
-        <p>Income statements, balance sheets, and statements of cash flows prepared from client records.</p>
-      </li>
-      <li>
-        <h3>Business Tax Returns</h3>
-        <p>Partnerships, S corporations, and limited liability companies.</p>
-      </li>
-      <li>
-        <h3>Payroll and Form 1099 Coordination</h3>
-        <p>Coordination of payroll processing and year-end Forms 1099 with the client's payroll provider.</p>
-      </li>
-      <li>
         <h3>Entity Selection and Formation Guidance</h3>
         <p>Evaluation of LLC, S corporation, and partnership structures before formation.</p>
       </li>
       <li>
         <h3>Budgeting, Forecasting, and Cash Flow Analysis</h3>
         <p>Forward-looking financial analysis to support pending business decisions.</p>
-      </li>
-      <li>
-        <h3>Accounting System Implementation and Cleanup</h3>
-        <p>QuickBooks and Xero setup, and remediation of existing files.</p>
       </li>
       <li>
         <h3>Special Projects</h3>
@@ -122,14 +105,15 @@
   <div class="cols">
     <div>
       <img src="assets/img/logo-reverse.png" alt="Christopher Larsen CPA"
-           width="914" height="200" loading="lazy">
-      <p class="about">Christopher Larsen CPA is a Los Angeles accounting practice specializing in real estate accounting and personal tax preparation.</p>
+           width="420" height="92" loading="lazy">
+      <p class="about">Christopher Larsen CPA is a Los Angeles accounting practice specializing in real estate accounting, small business accounting and tax, and personal tax preparation.</p>
     </div>
     <div>
       <h2 class="fh">Pages</h2>
-      <ul>
+      <ul class="pages">
         <li><a href="index.html">Home</a></li>
         <li><a href="real-estate-accounting.html">Real Estate Accounting</a></li>
+        <li><a href="small-business-accounting.html">Small Business Accounting</a></li>
         <li><a href="personal-tax-preparation.html">Personal Tax Preparation</a></li>
         <li><a href="other-services.html">Other Services</a></li>
         <li><a href="about.html">About</a></li>
@@ -155,5 +139,26 @@
   </div>
 </div></footer>
 
+<script>
+/* Phone navigation. On phones - portrait and landscape - the masthead shows
+   a single Menu control, so
+   the seven links stop filling the first screen. With JavaScript off the nav
+   renders as a plain list instead (see the noscript rule in the head). */
+(function () {
+  var h = document.querySelector(".masthead"),
+      t = document.querySelector(".nav-toggle"),
+      n = document.getElementById("primary-nav");
+  if (!h || !t || !n) return;
+  t.addEventListener("click", function () {
+    var open = h.classList.toggle("nav-open");
+    t.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  window.matchMedia("(max-width:520px), (max-width:960px) and (max-height:500px)").addEventListener("change", function (e) {
+    if (e.matches) return;
+    h.classList.remove("nav-open");
+    t.setAttribute("aria-expanded", "false");
+  });
+})();
+</script>
 </body>
 </html>

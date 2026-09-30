@@ -287,7 +287,7 @@ footer.site .licence strong{color:rgba(255,255,255,.92);font-weight:600}
   section{padding:62px 0}
   section.tight{padding:52px 0}
 }
-@media (max-width:520px){
+@media (max-width:520px),(max-width:960px) and (max-height:500px){
   .wrap{padding:0 22px}
   h1{font-size:2.05rem}
   .btn{padding:14px 22px;font-size:.68rem}
@@ -306,4 +306,4 @@ footer.site .licence strong{color:rgba(255,255,255,.92);font-weight:600}
   padding:12px 0 12px 16px;color:var(--ink);
 }
 .form-status.ok{border-left-color:#1F6B3A}
-.form-status.bad{border-left-color:#8C2B2B}
+.form-status.bad{border-left-color:#8C2B2B;color:#8C2B2B}
