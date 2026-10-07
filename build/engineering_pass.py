@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Engineering pass asset fixes for the staged larsen-cpa.com rebuild.
+"""Engineering pass asset fixes for the staged christopherlarsencpa.com rebuild.
 
 Run from anywhere:  python3 site/build/engineering_pass.py
 

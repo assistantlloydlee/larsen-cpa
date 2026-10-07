@@ -1,4 +1,4 @@
-# larsen-cpa.com — Christopher Larsen, CPA
+# christopherlarsencpa.com — Christopher Larsen, CPA
 
 Static marketing site for a California CPA practice focused on real estate
 accounting: lease compliance reviews, CAM audits, and lease accounting advisory.
@@ -54,7 +54,7 @@ real backgrounds, failed requests, console errors, and broken images.
 
 The form posts to a FormSubmit relay key (not a mailto, and not the mailbox
 address) and delivers to the practice mailbox. The key is activated per origin;
-both `larsen-cpa.com` and the Pages origin are activated. Changing the delivery
+both `christopherlarsencpa.com` and the Pages origin are activated. Changing the delivery
 address means re-activating the relay for the new address and swapping the action.
 
 ## Licensing

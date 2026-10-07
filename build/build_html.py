@@ -15,7 +15,7 @@ import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "site")
-BASE = "https://larsen-cpa.com/"
+BASE = "https://christopherlarsencpa.com/"
 EMAIL = "connect@larsen-cpa.com"
 # FormSubmit relay. The random-form key hides the delivery mailbox from the page source.
 FORM_ACTION = "https://formsubmit.co/136244dd4948b0a2cc7d588909bc84ab"
@@ -155,15 +155,15 @@ FOOTER = f"""</main>
 BIZ_SCHEMA = """{
   "@context":"https://schema.org",
   "@type":["LocalBusiness","ProfessionalService","AccountingService"],
-  "@id":"https://larsen-cpa.com/#business",
+  "@id":"https://christopherlarsencpa.com/#business",
   "name":"Christopher Larsen, CPA",
   "alternateName":"Christopher Larsen CPA",
   "description":"California CPA practice providing lease compliance reviews, CAM audits, and lease accounting advisory for real estate tenants, owners, and operators.",
-  "url":"https://larsen-cpa.com/",
+  "url":"https://christopherlarsencpa.com/",
   "email":"connect@larsen-cpa.com",
   "areaServed":{"@type":"State","name":"California"},
   "address":{"@type":"PostalAddress","addressRegion":"CA","addressCountry":"US"},
-  "founder":{"@type":"Person","@id":"https://larsen-cpa.com/about.html#person"},
+  "founder":{"@type":"Person","@id":"https://christopherlarsencpa.com/about.html#person"},
   "knowsAbout":["CAM audits","Lease compliance","Commercial lease accounting","ASC 842","Operating expense reconciliation"]
 }"""
 
@@ -338,7 +338,7 @@ for i, (q, a) in enumerate(faq):
 faq_schema = """{
   "@context":"https://schema.org",
   "@type":"FAQPage",
-  "@id":"https://larsen-cpa.com/services.html#faq",
+  "@id":"https://christopherlarsencpa.com/services.html#faq",
   "mainEntity":[
 %s
   ]
@@ -448,10 +448,10 @@ services = head(
 person_schema = """{
   "@context":"https://schema.org",
   "@type":"Person",
-  "@id":"https://larsen-cpa.com/about.html#person",
+  "@id":"https://christopherlarsencpa.com/about.html#person",
   "name":"Christopher D. Larsen",
   "jobTitle":"Certified Public Accountant",
-  "url":"https://larsen-cpa.com/about.html",
+  "url":"https://christopherlarsencpa.com/about.html",
   "email":"connect@larsen-cpa.com",
   "address":{"@type":"PostalAddress","addressRegion":"CA","addressCountry":"US"},
   "hasCredential":[
@@ -460,8 +460,8 @@ person_schema = """{
      "recognizedBy":{"@type":"Organization","name":"California Board of Accountancy"}}
   ],
   "alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Southern California"}],
-  "worksFor":{"@type":"ProfessionalService","@id":"https://larsen-cpa.com/#business",
-    "name":"Christopher Larsen, CPA","url":"https://larsen-cpa.com/"}
+  "worksFor":{"@type":"ProfessionalService","@id":"https://christopherlarsencpa.com/#business",
+    "name":"Christopher Larsen, CPA","url":"https://christopherlarsencpa.com/"}
 }"""
 
 about = head(
@@ -569,9 +569,9 @@ about = head(
 contact_schema = """{
   "@context":"https://schema.org",
   "@type":"ContactPage",
-  "@id":"https://larsen-cpa.com/contact.html",
-  "url":"https://larsen-cpa.com/contact.html",
-  "mainEntity":{"@id":"https://larsen-cpa.com/#business"}
+  "@id":"https://christopherlarsencpa.com/contact.html",
+  "url":"https://christopherlarsencpa.com/contact.html",
+  "mainEntity":{"@id":"https://christopherlarsencpa.com/#business"}
 }"""
 
 contact = head(

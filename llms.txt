@@ -43,11 +43,11 @@ always contingency-based, and no recovery amount is promised.
 
 ## Pages
 
-- [Home](https://larsen-cpa.com/): what the practice does, how an engagement runs.
-- [Real Estate Accounting](https://larsen-cpa.com/real-estate-accounting.html): lease compliance, CAM reviews, real estate accounting.
-- [Small Business Accounting](https://larsen-cpa.com/small-business-accounting.html): bookkeeping, financial statements, business tax returns.
-- [Personal Tax Preparation](https://larsen-cpa.com/personal-tax-preparation.html): individual and family tax preparation.
-- [Additional Services](https://larsen-cpa.com/other-services.html): entity selection, budgeting and forecasting, special projects.
-- [About](https://larsen-cpa.com/about.html): background, credentials, license number.
-- [Contact](https://larsen-cpa.com/contact.html): enquiry form and email address.
-- [Privacy](https://larsen-cpa.com/privacy.html): what the site collects.
+- [Home](https://christopherlarsencpa.com/): what the practice does, how an engagement runs.
+- [Real Estate Accounting](https://christopherlarsencpa.com/real-estate-accounting.html): lease compliance, CAM reviews, real estate accounting.
+- [Small Business Accounting](https://christopherlarsencpa.com/small-business-accounting.html): bookkeeping, financial statements, business tax returns.
+- [Personal Tax Preparation](https://christopherlarsencpa.com/personal-tax-preparation.html): individual and family tax preparation.
+- [Additional Services](https://christopherlarsencpa.com/other-services.html): entity selection, budgeting and forecasting, special projects.
+- [About](https://christopherlarsencpa.com/about.html): background, credentials, license number.
+- [Contact](https://christopherlarsencpa.com/contact.html): enquiry form and email address.
+- [Privacy](https://christopherlarsencpa.com/privacy.html): what the site collects.
