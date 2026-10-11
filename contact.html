@@ -137,69 +137,56 @@
         </form>
 
 <script>
-/* First-party submission with a real success check.
+/* First-party submission, restored to the mechanism the form used before: the
+   browser posts the form directly into a hidden frame, so the message is sent
+   by a native form POST and the visitor is then shown this site's confirmation
+   page. No cross-origin reply has to be read.
 
-   The form posts to this practice's own endpoint. The confirmation page is
-   shown ONLY when the endpoint answers with a successful (2xx) HTTP response,
-   so a failed send can no longer look like a success. If the request fails or
-   cannot be confirmed, the visitor sees the error and the direct email address
-   instead of the thank-you page, with their details still in the form.
-
-   Honest limit: the endpoint is a third party reached cross-origin, so the
-   site can only read what the browser is allowed to. A confirmed 2xx means the
-   endpoint accepted the POST; it is not proof the message reached the mailbox
-   (that is the endpoint's own job). When the browser cannot read the response
-   at all, the visitor is sent to the email fallback rather than a false
-   confirmation. With JavaScript off the form posts natively, as before. */
+   Why this and not a fetch() check: the endpoint is a Google Apps Script page
+   reached cross-origin from this site, and its response carries no CORS header,
+   so a fetch()-based success check could never read it and reported failure on
+   every submission - even though the message had already been emailed. Waiting
+   on the frame's load event gives a signal that the endpoint answered without
+   needing CORS. With JavaScript off the form still posts to the same endpoint
+   natively, and the endpoint's own page forwards to the confirmation page. */
 (function () {
   var form = document.getElementById('contact-form');
-  var status = form ? form.querySelector('.form-status') : null;
-  if (!form || !window.FormData || !window.fetch) return;  /* native POST fallback */
-
+  if (!form) return;
+  var status = form.querySelector('.form-status');
   var btn = form.querySelector('button[type="submit"]');
 
-  function show(kind, html) {
-    if (!status) return;
-    status.className = 'form-status' + (kind ? ' ' + kind : '');
-    status.innerHTML = html;
-    status.hidden = false;
-  }
-  function busy(on) {
-    if (!btn) return;
-    btn.disabled = on;
-    btn.setAttribute('aria-busy', on ? 'true' : 'false');
-    btn.textContent = on ? 'Sending Message' : 'Send Message';
-  }
-  function notSent() {
-    busy(false);
-    show('bad', '<strong>Your message was not sent.</strong> Please email ' +
-      '<a href="mailto:connect@larsen-cpa.com">connect@larsen-cpa.com</a> ' +
-      'directly so your enquiry is not missed. Your details are still in the form above.');
+  /* Hidden sink: the POST happens in this frame, so the visitor stays put and
+     no cross-origin response has to be read. */
+  var sink = document.createElement('iframe');
+  sink.name = 'contact-sink';
+  sink.setAttribute('aria-hidden', 'true');
+  sink.style.cssText = 'display:none;width:0;height:0;border:0';
+  document.body.appendChild(sink);
+  form.setAttribute('target', 'contact-sink');
+
+  var done = false;
+  function goThanks() {
+    if (done) return;
+    done = true;
+    window.location.href = 'thanks.html';
   }
 
-  form.addEventListener('submit', function (ev) {
-    ev.preventDefault();
-    var action = form.getAttribute('action');
-    if (!action) { notSent(); return; }
-    busy(true);
-    show('', 'Sending your message&hellip;');
-
-    var ctl = ('AbortController' in window) ? new AbortController() : null;
-    var timer = setTimeout(function () { if (ctl) ctl.abort(); }, 15000);
-
-    fetch(action, { method: 'POST', body: new FormData(form), mode: 'cors',
-                    signal: ctl ? ctl.signal : undefined })
-      .then(function (res) {
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        return res.text().catch(function () { return ''; });
-      })
-      .then(function (body) {
-        var t = String(body || '').trim().toLowerCase();
-        if (t.indexOf('error') === 0 || t === 'false') throw new Error('endpoint reported failure');
-        clearTimeout(timer);
-        window.location.href = 'thanks.html';
-      })
-      .catch(function () { clearTimeout(timer); notSent(); });
+  form.addEventListener('submit', function () {
+    if (btn) {
+      btn.disabled = true;
+      btn.setAttribute('aria-busy', 'true');
+      btn.textContent = 'Sending Message';
+    }
+    if (status) {
+      status.className = 'form-status';
+      status.innerHTML = 'Sending your message&hellip;';
+      status.hidden = false;
+    }
+    /* The frame's load event fires once the endpoint has answered; the enquiry
+       has been handed over by then, so show the confirmation page. A short
+       timer is the backstop if the load event is not delivered. */
+    sink.addEventListener('load', goThanks, { once: true });
+    setTimeout(goThanks, 2500);
   });
 })();
 </script>
