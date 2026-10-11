@@ -1,12 +1,11 @@
 # Christopher Larsen, CPA
 
-> A California CPA practice with three areas of focus: real estate accounting,
-> small business accounting and tax, and personal tax preparation. For real
-> estate, the work centers on lease compliance reviews and CAM (common area
-> maintenance) audits for commercial tenants, owners, and operators. For small
-> businesses, bookkeeping, monthly close, financial statements, and federal and
-> California business tax returns. Based in Southern California, licensed and
-> serving clients statewide.
+> A California CPA practice with three areas of focus: small business accounting and
+> tax, real estate accounting, and personal tax preparation. For small businesses,
+> bookkeeping, monthly close, financial statements, and federal and California business
+> tax returns. For real estate, the work centers on lease compliance reviews and CAM
+> (common area maintenance) audits for commercial tenants, owners, and operators.
+> Based in Southern California, licensed and serving clients statewide.
 
 ## Facts
 
@@ -17,20 +16,20 @@
 - Contact: connect@larsen-cpa.com. No street address is published.
 - The practice does not publish client names, engagement results, or testimonials.
 
-## Primary service
-
-Lease compliance and CAM audits for commercial tenants. The annual operating expense
-or CAM reconciliation a landlord issues is examined against the tenant's own lease and
-the supporting expense schedules. The output is a written memo in which each finding is
-tied to a specific lease provision and a specific supporting schedule. Items examined:
-overcharges, pro rata share errors, base year issues, expense cap violations, gross-up
-errors, and improperly billed capital costs.
-
-## Secondary services
+## Primary services
 
 - Small business accounting: bookkeeping and monthly close, financial statements,
   federal and California business tax returns, payroll and 1099 coordination, and
   QuickBooks and Xero setup and cleanup.
+- Real estate accounting: lease compliance and CAM audits for commercial tenants. The
+  annual operating expense or CAM reconciliation a landlord issues is examined against
+  the tenant's own lease and the supporting expense schedules. The output is a written
+  memo in which each finding is tied to a specific lease provision and a specific
+  supporting schedule. Items examined: overcharges, pro rata share errors, base year
+  issues, expense cap violations, gross-up errors, and improperly billed capital costs.
+
+## Additional services
+
 - Entity selection and formation guidance, budgeting and forecasting, and special projects.
 - Lease accounting advisory: ASC 842 compliance, lease abstraction, lease accounting cleanup.
 - Commercial lease audits beyond CAM: base rent verification, percentage rent audits.
@@ -44,8 +43,8 @@ always contingency-based, and no recovery amount is promised.
 ## Pages
 
 - [Home](https://christopherlarsencpa.com/): what the practice does, how an engagement runs.
-- [Real Estate Accounting](https://christopherlarsencpa.com/real-estate-accounting.html): lease compliance, CAM reviews, real estate accounting.
 - [Small Business Accounting](https://christopherlarsencpa.com/small-business-accounting.html): bookkeeping, financial statements, business tax returns.
+- [Real Estate Accounting](https://christopherlarsencpa.com/real-estate-accounting.html): lease compliance, CAM reviews, real estate accounting.
 - [Personal Tax Preparation](https://christopherlarsencpa.com/personal-tax-preparation.html): individual and family tax preparation.
 - [Additional Services](https://christopherlarsencpa.com/other-services.html): entity selection, budgeting and forecasting, special projects.
 - [About](https://christopherlarsencpa.com/about.html): background, credentials, license number.
