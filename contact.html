@@ -175,12 +175,12 @@
   var done = false;
 
   /* Google Ads conversion: a submitted website enquiry is the conversion.
-     Google's tag email supplied the base Google tag (AW-18481052703) but no
-     per-action conversion label, so CONVERSION_LABEL is empty and this is a
-     no-op until the label from the Ads conversion action is pasted in. It
-     fires only on the success path (goThanks), guarded by `done` so it cannot
-     fire twice for one submission, and never on the failure path (notSent). */
-  var CONVERSION_LABEL = '';
+     Conversion label from the Ads conversion action "Submit lead form" in
+     account 184-117-9990 (conversion ID AW-18481052703), read from Google Ads
+     Tag setup: send_to 'AW-18481052703/x9LkCLKnq5kdEJ_4uexE'. It fires only on
+     the success path (goThanks), guarded by `done` so it cannot fire twice for
+     one submission, and never on the failure path (notSent). */
+  var CONVERSION_LABEL = 'x9LkCLKnq5kdEJ_4uexE';
   function fireConversion(next) {
     if (!CONVERSION_LABEL || typeof window.gtag !== 'function') { next(); return; }
     var moved = false;
