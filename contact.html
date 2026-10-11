@@ -170,6 +170,24 @@
     done = true;
     window.location.href = 'thanks.html';
   }
+  /* Last resort only. Shown if, and only if, the endpoint never answers at
+     all (the frame never loads); the normal result is the confirmation page. */
+  function notSent() {
+    if (done) return;
+    done = true;
+    if (btn) {
+      btn.disabled = false;
+      btn.setAttribute('aria-busy', 'false');
+      btn.textContent = 'Send Message';
+    }
+    if (status) {
+      status.className = 'form-status bad';
+      status.innerHTML = '<strong>Your message was not sent.</strong> Please email ' +
+        '<a href="mailto:connect@larsen-cpa.com">connect@larsen-cpa.com</a> ' +
+        'directly so your enquiry is not missed. Your details are still in the form above.';
+      status.hidden = false;
+    }
+  }
 
   form.addEventListener('submit', function () {
     if (btn) {
@@ -183,10 +201,10 @@
       status.hidden = false;
     }
     /* The frame's load event fires once the endpoint has answered; the enquiry
-       has been handed over by then, so show the confirmation page. A short
-       timer is the backstop if the load event is not delivered. */
+       has been handed over by then, so show the confirmation page. The long
+       timer is the last resort, only if that event never arrives. */
     sink.addEventListener('load', goThanks, { once: true });
-    setTimeout(goThanks, 2500);
+    setTimeout(notSent, 12000);
   });
 })();
 </script>
