@@ -191,6 +191,16 @@ dl.detail--tight + .quiet{border-top:1px solid var(--line);padding-top:18px;marg
   ul.checks--three{grid-template-columns:1fr}
 }
 
+/* --- portrait: About page headshot (added 2026-10-13) ------------------- */
+/* Same 2px navy rule as the credentials panel, so the portrait and the
+   details column read as one register. One column wide, capped so the
+   photo stays a portrait block and never fills the measure. */
+figure.portrait{margin:0 0 30px;max-width:380px;border-top:2px solid var(--navy);padding-top:22px}
+figure.portrait img{width:100%;height:auto;border:1px solid var(--line-strong)}
+@media (max-width:900px){
+  figure.portrait{margin-bottom:26px}
+}
+
 /* --- form select (added for the contact service field) ------------------- */
 .field select{
   font-family:var(--sans);font-size:1.02rem;color:var(--ink);

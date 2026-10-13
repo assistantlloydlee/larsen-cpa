@@ -20,7 +20,9 @@ llms.txt              Summary for AI answer engines
 favicon.ico/.png      Cropped from the licensed brand monogram
 assets/style.css      Design system (no JS, no third-party requests)
 assets/fonts/         Source Serif 4 + Inter, self-hosted, text-subset (SIL OFL)
-assets/img/           Logo (downscaled) and hero band (JPEG + WebP)
+assets/img/           Logo (downscaled), hero band (JPEG + WebP), and the
+                      About-page headshot (JPEG + WebP, plus the full-size
+                      source JPEG)
 build/                Generators and the render/accessibility audit harness
 ```
 
@@ -60,6 +62,8 @@ address means re-activating the relay for the new address and swapping the actio
 ## Licensing
 
 - Photograph: Tuxyso / Wikimedia Commons, CC BY-SA 3.0 (cropped and toned).
-  Attribution is carried in the footer, as the licence requires.
+  Attribution is carried in the footer, as the licence requires. This covers
+  the home-page hero band only. The About-page headshot of Mr. Larsen is the
+  practice's own photograph and carries no third-party licence.
 - Fonts: Source Serif 4 and Inter, SIL Open Font Licence, self-hosted subsets.
 - Logo: supplied by the practice; the favicon is a crop of the monogram.
