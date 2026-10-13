@@ -95,6 +95,10 @@ p:last-child{margin-bottom:0}
 
 .masthead{background:var(--paper);padding:26px 0 22px;border-bottom:1px solid var(--line-strong)}
 .masthead .wrap{display:flex;align-items:center;justify-content:space-between;gap:30px}
+/* The lockup must not shrink. The seven nav items overflow the 1140px wrap
+   by ~30px, and a shrinking flex item lets img{max-width:100%} cap the image
+   width while height stays pinned, squashing the mark (4.57:1 -> 3.78:1). */
+.masthead .logo{flex:0 0 auto}
 .masthead .logo img{height:38px;width:auto}
 nav.main{display:flex;align-items:center;gap:30px;flex-wrap:wrap}
 nav.main a{
