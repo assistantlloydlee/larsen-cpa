@@ -1,5 +1,22 @@
 #!/usr/bin/env python3
-"""Generate the Larsen CPA site (static HTML) from the approved comps and the copy deck.
+"""RETIRED 2026-10-13 — DO NOT RUN. THE LIVE .html PAGES ARE THE SOURCE OF TRUTH.
+
+This file no longer reproduces the live site and must not be used to regenerate
+anything. After the 2026-09-30 "three-service" restructure the pages were
+hand-maintained, and the site grew to nine pages (plus a services.html redirect
+stub) with a 7-item nav, an 8-item footer, a versioned stylesheet pair
+(style.css?v=... + style-v2.css?v=...), and a responsive 900/1800 hero band.
+This generator still emits the pre-restructure five pages (index, services,
+about, contact, privacy) with the old "CAM Audits & Lease Compliance"
+positioning, a 4-item nav, a 5-item footer, the old footer tagline, and a
+single eager hero-band image. Running it would silently revert current work,
+today's headshot included. Edit the .html files directly. See README.md.
+
+It is also wired for an obsolete layout (it writes to ROOT/site) and therefore
+no longer writes into the repository at all. Kept for historical reference only.
+
+--- Original header follows ---
+Generate the Larsen CPA site (static HTML) from the approved comps and the copy deck.
 
 Fixes carried in from the copy review + the recorded owner decisions:
   1. About: firms named with their real roles; no unsupported client claims;
@@ -12,6 +29,17 @@ Fixes carried in from the copy review + the recorded owner decisions:
   7. "commercial real estate" -> "real estate" (owner decision 4:25 PM).
 """
 import os
+
+# ---------------------------------------------------------------------------
+# RETIRED 2026-10-13 — hard stop. Refuse to run; write nothing.
+# ---------------------------------------------------------------------------
+raise SystemExit(
+    "\n*** build/build_html.py is RETIRED and is not the source of truth.\n"
+    "*** The live .html pages are hand-maintained; edit them directly.\n"
+    "*** This script would emit an outdated five-page site and has been\n"
+    "*** disabled so it cannot be run by accident. See README.md\n"
+    "*** (\"Editing content\").\n"
+)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "site")

@@ -10,35 +10,49 @@ GitHub Pages serves the root of `main`.
 
 ```
 index.html            Home
-services.html         Services + FAQ (FAQPage JSON-LD)
+small-business-accounting.html   Small Business Accounting
+real-estate-accounting.html      Real Estate Accounting
+personal-tax-preparation.html    Personal Tax Preparation
+other-services.html              Additional Services
 about.html            About + Person JSON-LD (CA CPA licence 151422)
 contact.html          Contact + form
 privacy.html          Privacy
+thanks.html           Contact-form confirmation (noindex)
+services.html         Redirect stub -> real-estate-accounting.html
 robots.txt            Crawler policy + sitemap pointer
-sitemap.xml           Five URLs
+sitemap.xml           Eight URLs
 llms.txt              Summary for AI answer engines
 favicon.ico/.png      Cropped from the licensed brand monogram
-assets/style.css      Design system (no JS, no third-party requests)
+assets/style.css      Design system — plus style-v2.css (no JS, no third-party
+                      requests)
 assets/fonts/         Source Serif 4 + Inter, self-hosted, text-subset (SIL OFL)
 assets/img/           Logo (downscaled), hero band (JPEG + WebP), and the
                       About-page headshot (JPEG + WebP, plus the full-size
                       source JPEG)
-build/                Generators and the render/accessibility audit harness
+build/                RETIRED generators (do not run — see "Editing content")
+                      and the render/accessibility audit harness
 ```
 
 ## Editing content
 
-The five pages are generated so the header, footer, and navigation cannot drift
-apart. Edit `build/build_html.py` and regenerate:
+**The `.html` files at the repository root are the source of truth.** They are
+hand-maintained and edited directly. There is no build step; never regenerate
+the site from `build/`.
 
-```sh
-python3 build/build_html.py      # writes the five .html files
-python3 build/build_assets.py    # rebuilds images + the subset webfonts
-```
+An earlier page generator (`build/build_html.py`) and its asset builder
+(`build/build_assets.py`) are **retired**. They no longer reproduce the live
+site — `build_html.py` emits five pages from an older positioning where nine
+pages exist, with a different nav, footer, and hero band — and running them
+would silently revert current work, today's headshot included. `build_html.py`
+now refuses to run and exits with a message; `build_assets.py` is superseded
+(see its docstring). They are kept only for historical reference.
 
-`build/build_assets.py` re-reads the generated HTML to work out which characters
-to subset the webfonts to. If new copy introduces a character outside
-`U+0020-007E` plus `© · —`, run it again so the glyph is present.
+To change copy, edit the relevant `.html` file directly. The shared header, nav,
+and footer are duplicated in each file, so keep them consistent by hand.
+
+Fonts: the self-hosted webfont subsets are built to exactly the characters the
+site renders. If new copy introduces a character outside `U+0020-007E` plus
+`© · —`, extend the subsets by hand; do not run `build/build_assets.py`.
 
 ## Verifying a change
 
