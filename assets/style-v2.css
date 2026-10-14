@@ -26,7 +26,7 @@
 /* --- cards --------------------------------------------------------------- */
 .cards{
   display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
+  grid-template-columns:repeat(2,minmax(0,1fr));
   gap:30px;
   align-items:stretch;
 }
@@ -150,8 +150,8 @@ nav.main a::after,footer.site ul a::after{
 }
 
 @media (max-width:900px){
-  /* Home service cards: three across on desktop, stacked in one column on
-     tablet and phone widths (same single styling, so they still read as a set). */
+  /* Home service cards: two headline services across on desktop, stacked in one
+     column on tablet and phone widths (same single styling, so they still read as a set). */
   .cards{grid-template-columns:1fr;gap:24px}
   .card{padding:30px 28px 26px}
   .card--wide{padding:28px}
