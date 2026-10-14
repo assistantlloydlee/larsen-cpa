@@ -1,9 +1,10 @@
 # Christopher Larsen, CPA
 
-> A California CPA practice with three areas of focus: small business accounting and
-> tax, real estate accounting, and personal tax preparation. For small businesses,
-> bookkeeping, monthly close, financial statements, and federal and California business
-> tax returns. For real estate, the work centers on lease compliance reviews and CAM
+> A California CPA practice focused on small business accounting and tax, and personal
+> tax preparation. For small businesses, bookkeeping, monthly close, financial statements,
+> and federal and California business tax returns. For individuals, federal and California
+> income tax returns, including rental and investment income. Additional services include
+> real estate accounting, where the work centers on lease compliance reviews and CAM
 > (common area maintenance) audits for commercial tenants, owners, and operators.
 > Based in Southern California, licensed and serving clients statewide.
 
@@ -21,20 +22,23 @@
 - Small business accounting: bookkeeping and monthly close, financial statements,
   federal and California business tax returns, payroll and 1099 coordination, and
   QuickBooks and Xero setup and cleanup.
+- Personal tax preparation: federal and California individual income tax returns,
+  multi-state returns, rental property income, self-employment income, and investment
+  income and equity compensation.
+
+## Additional services
+
 - Real estate accounting: lease compliance and CAM audits for commercial tenants. The
   annual operating expense or CAM reconciliation a landlord issues is examined against
   the tenant's own lease and the supporting expense schedules. The output is a written
   memo in which each finding is tied to a specific lease provision and a specific
   supporting schedule. Items examined: overcharges, pro rata share errors, base year
   issues, expense cap violations, gross-up errors, and improperly billed capital costs.
-
-## Additional services
-
-- Entity selection and formation guidance, budgeting and forecasting, and special projects.
 - Lease accounting advisory: ASC 842 compliance, lease abstraction, lease accounting cleanup.
 - Commercial lease audits beyond CAM: base rent verification, percentage rent audits.
 - Landlord-side and property management accounting support.
 - Expense reconciliation and financial cleanup for owners and operators.
+- Entity selection and formation guidance, budgeting and forecasting, and special projects.
 - Ad hoc CPA advisory for real estate transactions.
 
 Engagements are scoped and priced on their own terms, fixed or hourly; work is not
@@ -44,9 +48,9 @@ always contingency-based, and no recovery amount is promised.
 
 - [Home](https://christopherlarsencpa.com/): what the practice does, how an engagement runs.
 - [Small Business Accounting](https://christopherlarsencpa.com/small-business-accounting.html): bookkeeping, financial statements, business tax returns.
-- [Real Estate Accounting](https://christopherlarsencpa.com/real-estate-accounting.html): lease compliance, CAM reviews, real estate accounting.
 - [Personal Tax Preparation](https://christopherlarsencpa.com/personal-tax-preparation.html): individual and family tax preparation.
-- [Additional Services](https://christopherlarsencpa.com/other-services.html): entity selection, budgeting and forecasting, special projects.
+- [Additional Services](https://christopherlarsencpa.com/other-services.html): real estate accounting, entity selection, budgeting and forecasting, special projects.
+- [Real Estate Accounting](https://christopherlarsencpa.com/real-estate-accounting.html): lease compliance, CAM reviews, real estate accounting.
 - [About](https://christopherlarsencpa.com/about.html): background, credentials, license number.
 - [Contact](https://christopherlarsencpa.com/contact.html): enquiry form and email address.
 - [Privacy](https://christopherlarsencpa.com/privacy.html): what the site collects.

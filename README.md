@@ -1,6 +1,7 @@
 # christopherlarsencpa.com — Christopher Larsen, CPA
 
-Static marketing site for a California CPA practice focused on real estate
+Static marketing site for a California CPA practice focused on small business
+accounting and personal tax preparation, with additional services including real estate
 accounting: lease compliance reviews, CAM audits, and lease accounting advisory.
 
 No build step is required to serve it: the repository root **is** the site.
@@ -11,7 +12,7 @@ GitHub Pages serves the root of `main`.
 ```
 index.html            Home
 small-business-accounting.html   Small Business Accounting
-real-estate-accounting.html      Real Estate Accounting
+real-estate-accounting.html      Real Estate Accounting (additional service, reachable from Other Services)
 personal-tax-preparation.html    Personal Tax Preparation
 other-services.html              Additional Services
 about.html            About + Person JSON-LD (CA CPA licence 151422)
