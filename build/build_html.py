@@ -110,7 +110,16 @@ def head(title, desc, canonical, schema, extra=""):
 """
 
 
-FOOTER = f"""</main>
+def footer(credit=False):
+    # The credit is a licence condition of the home-page hero band only
+    # (Tuxyso / Wikimedia Commons, CC BY-SA 3.0). Show it only where that
+    # band is rendered so pages without the band do not credit a photo they
+    # do not carry.
+    credit_block = (
+        '\n    <p class="photo-credit">Photograph: Tuxyso / Wikimedia Commons, CC BY-SA 3.0'
+        '\n      (cropped and toned).</p>'
+    ) if credit else ''
+    return f"""</main>
 
 <footer class="site"><div class="wrap">
   <div class="cols">
@@ -142,9 +151,7 @@ FOOTER = f"""</main>
     <strong>Christopher D. Larsen, CPA</strong> &middot; California CPA License No. {LICENCE}
     &middot; Based in Southern California, licensed and serving clients statewide.<br>
     &copy; 2026 Christopher Larsen, CPA. All rights reserved.
-    &middot; <a href="privacy.html">Privacy</a>
-    <p class="photo-credit">Photograph: Tuxyso / Wikimedia Commons, CC BY-SA 3.0
-      (cropped and toned).</p>
+    &middot; <a href="privacy.html">Privacy</a>{credit_block}
   </div>
 </div></footer>
 
@@ -297,7 +304,7 @@ index = head(
       <a class="btn ghost" href="services.html">Services and FAQ</a>
     </div>
   </div></section>
-""" + FOOTER
+""" + footer(credit=True)
 
 # ---------------------------------------------------------------- services
 faq = [
@@ -442,7 +449,7 @@ services = head(
       <a class="btn" href="contact.html">Contact the practice</a>
     </div>
   </div></section>
-""" + FOOTER
+""" + footer()
 
 # ---------------------------------------------------------------- about
 person_schema = """{
@@ -563,7 +570,7 @@ about = head(
       <a class="btn ghost" href="contact.html">Contact the practice</a>
     </div>
   </div></section>
-""" + FOOTER
+""" + footer()
 
 # ---------------------------------------------------------------- contact
 contact_schema = """{
@@ -667,7 +674,7 @@ contact = head(
         looking for.</p></li>
     </ol>
   </div></section>
-""" + FOOTER
+""" + footer()
 
 # ---------------------------------------------------------------- privacy
 privacy = head(
@@ -720,7 +727,7 @@ privacy = head(
         Southern California &middot; <a href="mailto:{EMAIL}">{EMAIL}</a></p>
     </div>
   </div></section>
-""" + FOOTER
+""" + footer()
 
 pages = {
     "index.html": index,
