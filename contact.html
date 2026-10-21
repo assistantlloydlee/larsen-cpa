@@ -133,6 +133,7 @@
             <label for="website">Website</label>
             <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
           </div>
+          <input type="hidden" id="form_ts" name="form_ts" value="">
           <p class="note">Sending delivers your enquiry straight to Christopher Larsen CPA through
             this site's own form.<span class="m-hide"> Your message is emailed to the practice and no
             third-party form service is used, so you do not need to open your own email program.</span>
@@ -158,6 +159,17 @@
   if (!form) return;
   var status = form.querySelector('.form-status');
   var btn = form.querySelector('button[type="submit"]');
+
+  /* Bot gate, two checks that need no third-party service and no paid plan:
+     (1) the hidden "website" field above must stay empty, and
+     (2) the form must not be submitted within MIN_FILL_MS of the page loading.
+         A person cannot type a name, an address and a message that fast; a
+         scripted POST fires immediately. The load timestamp is posted as
+         form_ts so the endpoint can repeat the same check server-side. */
+  var loadedAt = Date.now();
+  var MIN_FILL_MS = 3000;
+  var tsField = document.getElementById('form_ts');
+  if (tsField) tsField.value = String(loadedAt);
 
   /* Hidden sink: the POST happens in this frame, so the visitor stays put and
      no cross-origin response has to be read. */
@@ -212,7 +224,29 @@
     }
   }
 
-  form.addEventListener('submit', function () {
+  form.addEventListener('submit', function (ev) {
+    var hp = form.querySelector('input[name="website"]');
+    if (hp && hp.value) {
+      /* Honeypot filled: a bot. Show the normal confirmation and send nothing. */
+      ev.preventDefault();
+      goThanks();
+      return;
+    }
+    if (Date.now() - loadedAt < MIN_FILL_MS) {
+      ev.preventDefault();
+      if (btn) {
+        btn.disabled = false;
+        btn.setAttribute('aria-busy', 'false');
+        btn.textContent = 'Send Message';
+      }
+      if (status) {
+        status.className = 'form-status bad';
+        status.textContent = 'Please take a moment to complete the form, then send again.';
+        status.hidden = false;
+      }
+      return;
+    }
+    if (tsField) tsField.value = String(loadedAt);
     if (btn) {
       btn.disabled = true;
       btn.setAttribute('aria-busy', 'true');
