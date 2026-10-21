@@ -174,8 +174,13 @@ nav.main a::after,footer.site ul a::after{
    Only the utilities the seven built pages need on top of the design sheet.
    ========================================================================== */
 
-/* single column page head: pages whose intro takes the full measure */
-.page-head--full{grid-template-columns:minmax(0,70ch)}
+/* single column page head: pages whose intro takes the full measure.
+   The column is a body-copy measure, but it also sets the width of the h1,
+   which is set at up to 56.8px. At 70ch (750px at 1440) a 28-character
+   title broke to a 3-character last line and read narrower than its own
+   deck, so the head is allowed 80ch (858px) and the h1 sets on one line.
+   The lede keeps its own 60ch cap, so body copy is unchanged. */
+.page-head--full{grid-template-columns:minmax(0,80ch)}
 
 /* three-across checklist: the "How I work" block on About */
 ul.checks--three{grid-template-columns:repeat(3,1fr);gap:14px 40px}
