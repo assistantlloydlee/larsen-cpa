@@ -78,9 +78,10 @@ Spam protection in the page (`contact.html`): a hidden honeypot field
 long digit strings, and a `js_ok=1` field set only by the page script. A
 filtered submission is shown the normal confirmation and nothing is sent.
 Browser-side checks cannot stop a bot that posts straight to the endpoint, so
-the Apps Script should also reject posts where `website` is non-empty,
-`js_ok` is missing, `form_ts` is under 3 seconds old, or the name matches the
-same pattern.
+`apps-script/spam-guard.gs` repeats them server-side: it drops posts with a
+filled honeypot or a spam-pattern name, and marks posts without `js_ok` as
+"[Unverified]". It must be pasted into the Apps Script project by hand (install
+steps are in the file); GitHub Pages does not deploy it.
 
 ## Licensing
 
