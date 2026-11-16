@@ -69,10 +69,18 @@ real backgrounds, failed requests, console errors, and broken images.
 
 ## Contact form
 
-The form posts to a FormSubmit relay key (not a mailto, and not the mailbox
-address) and delivers to the practice mailbox. The key is activated per origin;
-both `christopherlarsencpa.com` and the Pages origin are activated. Changing the delivery
-address means re-activating the relay for the new address and swapping the action.
+The form posts to a Google Apps Script web app (see the `action` in
+`contact.html`), which emails the enquiry to the practice mailbox. The Apps
+Script source is not in this repository.
+
+Spam protection in the page (`contact.html`): a hidden honeypot field
+(`website`), a 3-second minimum fill time, a Name-field check for links and
+long digit strings, and a `js_ok=1` field set only by the page script. A
+filtered submission is shown the normal confirmation and nothing is sent.
+Browser-side checks cannot stop a bot that posts straight to the endpoint, so
+the Apps Script should also reject posts where `website` is non-empty,
+`js_ok` is missing, `form_ts` is under 3 seconds old, or the name matches the
+same pattern.
 
 ## Licensing
 
