@@ -171,6 +171,29 @@
   var tsField = document.getElementById('form_ts');
   if (tsField) tsField.value = String(loadedAt);
 
+  /* (3) Content check on the Name field. The October 2026 spam put links and
+         long digit strings in the name (e.g. "...https://xtimex.buzz/..." and
+         "NAERTERHTE1893966NEWETREWT"). No real name contains a URL or five
+         digits in a row, so such a submission is treated like a filled
+         honeypot: the bot sees the normal confirmation and nothing is sent.
+     (4) js_ok is set only when this script runs, so the endpoint can reject
+         posts that never came through the page (direct scripted POSTs). */
+  var SPAM_NAME = /(https?:|:\/\/|www\.|\.buzz\b|\d{5,})/i;
+  var jsOk = document.createElement('input');
+  jsOk.type = 'hidden'; jsOk.name = 'js_ok'; jsOk.value = '1';
+  form.appendChild(jsOk);
+
+  /* Preselect the service when arriving from a service page's quote button,
+     e.g. contact.html?service=personal. */
+  try {
+    var svc = new URLSearchParams(window.location.search).get('service');
+    var map = { personal: 'Personal Tax Preparation',
+                business: 'Small business accounting or tax',
+                other: 'Other services (including real estate accounting)' };
+    var sel = document.getElementById('service');
+    if (svc && map[svc] && sel) sel.value = map[svc];
+  } catch (e) { /* older browsers: leave the menu as is */ }
+
   /* Hidden sink: the POST happens in this frame, so the visitor stays put and
      no cross-origin response has to be read. */
   var sink = document.createElement('iframe');
@@ -205,6 +228,14 @@
     done = true;
     fireConversion(function () { window.location.href = 'thanks.html'; });
   }
+  /* Filtered (bot) submission: show the normal confirmation so the bot learns
+     nothing, but send nothing and do NOT fire the Ads conversion, so caught
+     spam is never counted as a lead. */
+  function fakeThanks() {
+    if (done) return;
+    done = true;
+    window.location.href = 'thanks.html';
+  }
   /* Last resort only. Shown if, and only if, the endpoint never answers at
      all (the frame never loads); the normal result is the confirmation page. */
   function notSent() {
@@ -226,10 +257,12 @@
 
   form.addEventListener('submit', function (ev) {
     var hp = form.querySelector('input[name="website"]');
-    if (hp && hp.value) {
-      /* Honeypot filled: a bot. Show the normal confirmation and send nothing. */
+    var nm = form.querySelector('input[name="name"]');
+    if ((hp && hp.value) || (nm && SPAM_NAME.test(nm.value))) {
+      /* Honeypot filled or spam name: a bot. Show the normal confirmation,
+         send nothing, record no conversion. */
       ev.preventDefault();
-      goThanks();
+      fakeThanks();
       return;
     }
     if (Date.now() - loadedAt < MIN_FILL_MS) {
