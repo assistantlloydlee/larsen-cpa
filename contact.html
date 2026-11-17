@@ -176,12 +176,9 @@
          "NAERTERHTE1893966NEWETREWT"). No real name contains a URL or five
          digits in a row, so such a submission is treated like a filled
          honeypot: the bot sees the normal confirmation and nothing is sent.
-     (4) js_ok is set only when this script runs, so the endpoint can reject
-         posts that never came through the page (direct scripted POSTs). */
+     Note: the endpoint accepts only the fields this form already sends. Do
+     not add a new form field without adding it to the endpoint's allow-list. */
   var SPAM_NAME = /(https?:|:\/\/|www\.|\.buzz\b|\d{5,})/i;
-  var jsOk = document.createElement('input');
-  jsOk.type = 'hidden'; jsOk.name = 'js_ok'; jsOk.value = '1';
-  form.appendChild(jsOk);
 
   /* Preselect the service when arriving from a service page's quote button,
      e.g. contact.html?service=personal. */

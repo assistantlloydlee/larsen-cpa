@@ -74,14 +74,11 @@ The form posts to a Google Apps Script web app (see the `action` in
 Script source is not in this repository.
 
 Spam protection in the page (`contact.html`): a hidden honeypot field
-(`website`), a 3-second minimum fill time, a Name-field check for links and
-long digit strings, and a `js_ok=1` field set only by the page script. A
-filtered submission is shown the normal confirmation and nothing is sent.
-Browser-side checks cannot stop a bot that posts straight to the endpoint, so
-`apps-script/spam-guard.gs` repeats them server-side: it drops posts with a
-filled honeypot or a spam-pattern name, and marks posts without `js_ok` as
-"[Unverified]". It must be pasted into the Apps Script project by hand (install
-steps are in the file); GitHub Pages does not deploy it.
+(`website`), a 3-second minimum fill time, and a Name-field check for links and
+long digit strings. A filtered submission is shown the normal confirmation and
+nothing is sent. The Apps Script endpoint repeats the honeypot and timing
+checks server-side and rejects any field not on its allow-list, so a new form
+field must be added to that allow-list before it is added here.
 
 ## Licensing
 
